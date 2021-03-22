@@ -1,5 +1,9 @@
 # MydataView
 
+## To be used in conjunction with the csv-2-json api (http://localhost:4001/api/v1/upload) but you can parameterize it how you see fit via the .env and environment.prod
+
+![alt text](src/assets/MydataView.jpg)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
 
 ## Development server

@@ -1,0 +1,183 @@
+[{
+    "offer_id": "1",
+    "booking_id": "12345",
+    "shipper_info": [{
+      "name": "hemanth",
+      "ratings": "4"
+    }],
+    "pcs": "123",
+    "weight": "123",
+    "volume": "123",
+    "volume_weight": "123",
+    "chargeable_weight": ""
+  },
+  {
+    "offer_id": "2",
+    "booking_id": "123455",
+    "shipper_info": [{
+      "name": "hemanth",
+      "ratings": "3.5"
+    }],
+    "pcs": "1",
+    "weight": "123",
+    "volume": "123",
+    "volume_weight": "123",
+    "chargeable_weight": ""
+  },
+  {
+    "offer_id": "3",
+    "booking_id": "12345g",
+    "shipper_info": [{
+      "name": "hemanth",
+      "ratings": "1.5"
+    }],
+    "pcs": "2",
+    "weight": "123",
+    "volume": "123",
+    "volume_weight": "123",
+    "chargeable_weight": ""
+  },
+  {
+    "offer_id": "4",
+    "booking_id": "12345o",
+    "shipper_info": [{
+      "name": "hemanth",
+      "ratings": "5"
+    }],
+    "pcs": "3",
+    "weight": "123",
+    "volume": "123",
+    "volume_weight": "123",
+    "chargeable_weight": ""
+  },
+  {
+    "offer_id": "5",
+    "booking_id": "12345gk",
+    "shipper_info": [{
+      "name": "hemanth",
+      "ratings": "1.5"
+    }],
+    "pcs": "4",
+    "weight": "123",
+    "volume": "123",
+    "volume_weight": "123",
+    "chargeable_weight": ""
+  },
+  {
+    "offer_id": "6",
+    "booking_id": "12345gn",
+    "shipper_info": [{
+      "name": "hemanth",
+      "ratings": "1.5"
+    }],
+    "pcs": "5",
+    "weight": "123",
+    "volume": "123",
+    "volume_weight": "123",
+    "chargeable_weight": ""
+  },
+  {
+    "offer_id": "7",
+    "booking_id": "12345i",
+    "shipper_info": [{
+      "name": "hemanth",
+      "ratings": "1.5"
+    }],
+    "pcs": "7",
+    "weight": "123",
+    "volume": "123",
+    "volume_weight": "123",
+    "chargeable_weight": ""
+  },
+  {
+    "offer_id": "8",
+    "booking_id": "12345u",
+    "shipper_info": [{
+      "name": "hemanth",
+      "ratings": "1.5"
+    }],
+    "pcs": "9",
+    "weight": "123",
+    "volume": "123",
+    "volume_weight": "123",
+    "chargeable_weight": ""
+  },
+  {
+    "offer_id": "9",
+    "booking_id": "12345t",
+    "shipper_info": [{
+      "name": "hemanth",
+      "ratings": "1.5"
+    }],
+    "pcs": "10",
+    "weight": "123",
+    "volume": "123",
+    "volume_weight": "123",
+    "chargeable_weight": ""
+  },
+  {
+    "offer_id": "10",
+    "booking_id": "12345x",
+    "shipper_info": [{
+      "name": "hemanth",
+      "ratings": "1.5"
+    }],
+    "pcs": "34",
+    "weight": "123",
+    "volume": "123",
+    "volume_weight": "123",
+    "chargeable_weight": ""
+  },
+  {
+    "offer_id": "11",
+    "booking_id": "12345b",
+    "shipper_info": [{
+      "name": "hemanth",
+      "ratings": "1.5"
+    }],
+    "pcs": "14",
+    "weight": "123",
+    "volume": "123",
+    "volume_weight": "123",
+    "chargeable_weight": ""
+  },
+  {
+    "offer_id": "12",
+    "booking_id": "12345b",
+    "shipper_info": [{
+      "name": "hemanth",
+      "ratings": "1.5"
+    }],
+    "pcs": "14",
+    "weight": "123",
+    "volume": "123",
+    "volume_weight": "123",
+    "chargeable_weight": ""
+  },
+  {
+    "offer_id": "13",
+    "booking_id": "12345b",
+    "shipper_info": [{
+      "name": "hemanth",
+      "ratings": "1.5"
+    }],
+    "pcs": "14",
+    "weight": "123",
+    "volume": "123",
+    "volume_weight": "123",
+    "chargeable_weight": ""
+  },
+  {
+    "offer_id": "14",
+    "booking_id": "12345b",
+    "shipper_info": [{
+      "name": "hemanth",
+      "ratings": "1.5"
+    }],
+    "pcs": "14",
+    "weight": "123",
+    "volume": "123",
+    "volume_weight": "123",
+    "chargeable_weight": ""
+  }
+]

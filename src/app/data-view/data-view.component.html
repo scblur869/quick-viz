@@ -1,0 +1,40 @@
+<p-toast></p-toast>
+<p-card>
+   Choose a CSV or JSON file and click Upload
+</p-card>
+<div class="card">
+    <p-fileUpload name="upload" [customUpload]=true (uploadHandler)="onUpload($event)"
+             accept="text/csv,application/json,application/xml" [maxFileSize]=maxFileSize>
+    </p-fileUpload>
+    </div>
+
+    <div class="card">
+<p-table [value]="rows" [columns]="cols" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" sortMode="single"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-sm p-datatable-responsive-table">
+<ng-template pTemplate="header" let-columns>
+        <tr>
+            <th [pSortableColumn]="col.field" *ngFor="let col of columns">{{col.header}}<p-sortIcon [field]="col.field" ></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+    </div>
+<p-card>
+
+  <div *ngFor="let col of cols"  class="p-field-checkbox p-m-2" style=" display: inline !important;">
+    <p-checkbox [name]="chkboxGrp" [value]="col.field"  [(ngModel)]="selectedValues" (onChange)="checkEvent($event)"></p-checkbox>
+     <label for="col.header">{{col.header}}</label>
+  </div>
+</p-card>
+<div style="margin-top:20px;">
+<button pButton type="button" label="Visualize Selected Columns" class="p-button-outlined"  (click)="showQuickViz()"></button>
+</div>
+
+

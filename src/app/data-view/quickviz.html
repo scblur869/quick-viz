@@ -1,0 +1,10 @@
+
+
+<div class="p-grid p-ai-center vertical-container">
+    <div class="p-col-11 p-md-9 p-lg-5"  *ngFor="let selected of selectedCols">
+      <div *ngFor="let c of chartList[selected]">
+ <p-chart type="doughnut" [data]="c" [responsive]="true" [options] ="options" ></p-chart>
+      </div>
+
+    </div>
+</div>
