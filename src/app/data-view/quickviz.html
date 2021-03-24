@@ -1,9 +1,13 @@
 
 
-<div class="p-grid p-ai-center vertical-container">
-    <div class="p-col-11 p-md-9 p-lg-5"  *ngFor="let selected of selectedCols">
+<div class="p-grid p-ai-center vertical-container" [ngSwitch]="chartType">
+    <div class="p-col-8 p-md-6 p-lg-12"  *ngFor="let selected of selectedCols">
       <div *ngFor="let c of chartList[selected]">
- <p-chart type="doughnut" [data]="c" [responsive]="true" [options] ="options" ></p-chart>
+  <p-chart *ngSwitchCase="'doughnut'" type="doughnut" [data]="c" [responsive]="true" [options]="c" ></p-chart>
+  <p-chart *ngSwitchCase="'line'" type="line" [data]="c" [responsive]="true" [options]="c" ></p-chart>
+   <p-chart *ngSwitchCase="'polar'" type="polarArea" [data]="c" [responsive]="true" [options]="c" ></p-chart>
+    <p-chart *ngSwitchCase="'pie'" type="pie" [data]="c" [responsive]="true" [options]="c" ></p-chart>
+    <p-chart *ngSwitchCase="'bar'" type="bar" [data]="c" [responsive]="true" [options]="c" ></p-chart>
       </div>
 
     </div>

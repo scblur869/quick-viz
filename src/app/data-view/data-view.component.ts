@@ -23,19 +23,37 @@ interface Header {
 })
 export class DataViewComponent implements OnInit {
   uploadedFiles: any[] = [];
-  maxFileSize = 100000000;
+  maxFileSize = 1000000000;
   cols: Header[] = [];
   chkboxGrp?: string;
+  radioGrp?: string;
   rows: any[] = [];
   chartData: any[][] = [];
   dataSet: any[][] = [];
   selectedValues: any[] = [];
+  selectedValue: any;
   selectedArray: any[][] = [];
   chartLabels: any[][] = [];
   options: any;
   first = 0;
   total = 10;
   uploadUrl = environment.api + '/api/v1/upload';
+  chartType = [{
+    label: 'Pie',
+    value: 'pie'
+  }, {
+    label: 'Line Chart',
+    value: 'line'
+  },
+  {
+    label: 'Polar Area',
+    value: 'polar'
+  },
+  {
+    label: 'Doughnut',
+    value: 'doughnut'
+  }
+  ];
   constructor(public dialogService: DialogService, private messageService: MessageService, private dataService: DataService) { }
 
   onUpload(event: any): any {
@@ -51,6 +69,7 @@ export class DataViewComponent implements OnInit {
     console.log(file.name);
     formData.append('upload', file, file.name);
     const uploadOb = this.dataService.uploadCsvFile(formData);
+
     const uploadObserver = {
       next: (r: CsvData) => {
         if (r) {
@@ -109,24 +128,41 @@ export class DataViewComponent implements OnInit {
       // dataset build
 
       const colors = this.getRandomColor(this.chartLabels[checkedItem].length);
-      this.dataSet[checkedItem].push({
-        labels: this.chartLabels[checkedItem],
-        datasets: [
-          {
-            data: this.chartData[checkedItem],
-            backgroundColor: colors
-            ,
-            hoverBackgroundColor: colors
-          }]
-      });
+      const lineColor = this.getRandomColor(1);
+      this.dataSet[checkedItem].push(
+        {
+          labels: this.chartLabels[checkedItem],
+          datasets: [
+            {
+
+              data: this.chartData[checkedItem],
+              backgroundColor: colors,
+              fill: false
+              ,
+              hoverBackgroundColor: colors
+            }],
+          title: {
+            display: true,
+            text: checkedItem + ' Chart',
+            fontSize: 14
+          },
+          legend: {
+            position: 'left'
+          }
+        });
     }
+  }
+
+  radioEvent(event: any): void {
+    console.log(this.selectedValue);
   }
 
   showQuickViz(): void {
     const ref = this.dialogService.open(QuickVisDialogComponent, {
       data: {
         d: this.dataSet,
-        cols: this.selectedValues
+        cols: this.selectedValues,
+        type: this.selectedValue
       },
       header: 'Quick Viz',
       width: '80%',
@@ -152,22 +188,16 @@ export class QuickVisDialogComponent implements OnInit {
   chartList: any[][] = [];
   selectedCols: any[] = [];
   options: any;
+  chartType: any;
   constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig) { }
 
   ngOnInit(): void {
-    this.options = {
-      title: {
-        display: true,
-        text: 'pie chart',
-        fontSize: 14
-      },
-      legend: {
-        position: 'left'
-      }
-    };
+
     const data = this.config.data;
     // tslint:disable-next-line: no-string-literal
     this.chartList = data['d'];
+    // tslint:disable-next-line: no-string-literal
+    this.chartType = data['type'];
     // tslint:disable-next-line: no-string-literal
     this.selectedCols = data['cols'];
     console.log(this.chartList);

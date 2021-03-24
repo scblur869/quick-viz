@@ -9,8 +9,8 @@ const routes: Routes = [{
   path: 'app',
   component: MainComponent,
   children: [
-    { path: 'data-view', component: DataViewComponent },
-    { path: 'visualizations', component: VisualizationComponent }
+    { path: 'single-data-view', component: DataViewComponent },
+    { path: 'multi-data-view', component: VisualizationComponent }
   ]
 },
 { path: '', redirectTo: 'app', pathMatch: 'full' },

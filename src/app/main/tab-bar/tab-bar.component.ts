@@ -7,8 +7,8 @@ import { MenuItem } from 'primeng/api';
 })
 export class TabBarComponent implements OnInit {
   items: MenuItem[] = [
-    { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: 'data-view' },
-    { label: 'Visualizations', icon: 'pi pi-chart-bar', routerLink: 'visualizations' },
+    { label: 'Single Data View', icon: 'pi pi-fw pi-image', routerLink: 'single-data-view' },
+    { label: 'Multi Data View', icon: 'pi pi-images', routerLink: 'multi-data-view' },
 
   ];
   constructor() { }

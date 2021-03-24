@@ -11,6 +11,8 @@
     font-weight: bold;
   }
 
+
+
   :last-child {
     border-bottom: 1px solid var(--surface-d);
   }
@@ -21,6 +23,7 @@
     width: 100%;
     float: left;
     clear: left;
+    font-size: 0.3em;
     border: 0 none;
   }
 
@@ -28,4 +31,13 @@
   .p-datatable-tfoot>tr>td {
     display: none !important;
   }
+}
+
+
+.radioGroup {
+  margin-top: -10px;
+}
+
+.multi-select {
+  width: 300px;
 }

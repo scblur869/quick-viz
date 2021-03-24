@@ -1,6 +1,11 @@
 <p-toast></p-toast>
 <p-card>
-   Choose a CSV or JSON file and click Upload
+   upload csv data with a standard first row of header
+
+  <p> "Code","Name","Category","Quantity" </p>
+
+  <p>"f230fh0g3","Bamboo Watch","Accessories","24" </p>
+  ...
 </p-card>
 <div class="card">
     <p-fileUpload name="upload" [customUpload]=true (uploadHandler)="onUpload($event)"
@@ -8,7 +13,7 @@
     </p-fileUpload>
     </div>
 
-    <div class="card">
+
 <p-table [value]="rows" [columns]="cols" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" sortMode="single"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-sm p-datatable-responsive-table">
 <ng-template pTemplate="header" let-columns>
@@ -25,16 +30,25 @@
         </tr>
     </ng-template>
 </p-table>
-    </div>
+<!--
 <p-card>
 
   <div *ngFor="let col of cols"  class="p-field-checkbox p-m-2" style=" display: inline !important;">
     <p-checkbox [name]="chkboxGrp" [value]="col.field"  [(ngModel)]="selectedValues" (onChange)="checkEvent($event)"></p-checkbox>
      <label for="col.header">{{col.header}}</label>
   </div>
+
+</p-card> -->
+
+<p-card>
+<p-multiSelect [options]="cols" [panelStyle]="{minWidth:'15em'}" [style]="{minWidth:'15em'}" [(ngModel)]="selectedValues" optionLabel="header" optionValue="field" display="chip" (onChange)="checkEvent($event)"></p-multiSelect>
+{{cols.length}} Fields Found
 </p-card>
-<div style="margin-top:20px;">
+<p-card>
 <button pButton type="button" label="Visualize Selected Columns" class="p-button-outlined"  (click)="showQuickViz()"></button>
-</div>
 
-
+    <div *ngFor="let chart of chartType" class="p-field-checkbox p-m-2" style="display: inline !important;">
+  <p-radioButton name="radioGrp" [inputId]="chart.value" [value]="chart.value" [(ngModel)]="selectedValue" (onClick)="radioEvent($event)"></p-radioButton>
+     <label [for]="chart.label">{{chart.label}}</label>
+  </div>
+</p-card>

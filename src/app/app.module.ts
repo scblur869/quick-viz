@@ -33,8 +33,9 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { TabViewModule } from 'primeng/tabview';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { CheckboxModule } from 'primeng/checkbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
 import { ChartModule } from 'primeng/chart';
-
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [
@@ -55,10 +56,12 @@ import { ChartModule } from 'primeng/chart';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MultiSelectModule,
     CheckboxModule,
     HttpClientModule,
     ChartModule,
     DataViewModule,
+    RadioButtonModule,
     CardModule,
     TableModule,
     PaginatorModule,
