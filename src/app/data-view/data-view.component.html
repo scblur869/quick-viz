@@ -30,25 +30,34 @@
         </tr>
     </ng-template>
 </p-table>
-<!--
-<p-card>
-
-  <div *ngFor="let col of cols"  class="p-field-checkbox p-m-2" style=" display: inline !important;">
-    <p-checkbox [name]="chkboxGrp" [value]="col.field"  [(ngModel)]="selectedValues" (onChange)="checkEvent($event)"></p-checkbox>
-     <label for="col.header">{{col.header}}</label>
-  </div>
-
-</p-card> -->
 
 <p-card>
+
+<div class="p-field-checkbox p-m-2" style=" display: inline !important;">
+<p-checkbox name="groupname" value="enableDs" [(ngModel)]="enableDs" onChange="enableDS($event)" [binary]="true"></p-checkbox>
+ <label for="enableDs">Create DataSet</label>
+</div>
+
+<p-card *ngIf="!enableDs">
+<div class="p-field-checkbox p-m-2" style=" display: inline !important;">
 <p-multiSelect [options]="cols" [panelStyle]="{minWidth:'15em'}" [style]="{minWidth:'15em'}" [(ngModel)]="selectedValues" optionLabel="header" optionValue="field" display="chip" (onChange)="checkEvent($event)"></p-multiSelect>
 {{cols.length}} Fields Found
+</div>
+</p-card>
+
+<p-card *ngIf="enableDs">
+
+<p-dropdown class="p-mr-2 p-mb-2" placeholder="select x-axis"  [options]="cols" [(ngModel)]="labelSelect" optionLabel="header" (onChange)="multiDataSetEvent($event)" [panelStyle]="{minWidth:'15em'}" [style]="{minWidth:'15em'}" ></p-dropdown>
+<p-dropdown class="p-mr-2 p-mb-2" placeholder="select dataset"   [options]="cols" [(ngModel)]="valueSelect" optionLabel="field" (onChange)="multiDataSetEvent($event)" [panelStyle]="{minWidth:'15em'}" [style]="{minWidth:'15em'}" ></p-dropdown>
+
+</p-card>
+
 </p-card>
 <p-card>
-<button pButton type="button" label="Visualize Selected Columns" class="p-button-outlined"  (click)="showQuickViz()"></button>
+<button pButton type="button"  label="Visualize Selected Columns" class=" p-mr-3 p-button-outlined"  (click)="showQuickViz()"></button>
 
-    <div *ngFor="let chart of chartType" class="p-field-checkbox p-m-2" style="display: inline !important;">
-  <p-radioButton name="radioGrp" [inputId]="chart.value" [value]="chart.value" [(ngModel)]="selectedValue" (onClick)="radioEvent($event)"></p-radioButton>
+    <div *ngFor="let chart of chartType" class="p-mr-3"  style="display: inline !important;">
+  <p-radioButton class="p-mr-2 p-mb-2"  name="radioGrp" [inputId]="chart.value" [value]="chart.value" [(ngModel)]="selectedValue" (onClick)="radioEvent($event)"></p-radioButton>
      <label [for]="chart.label">{{chart.label}}</label>
   </div>
 </p-card>

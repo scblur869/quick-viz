@@ -32,6 +32,9 @@ export class DataViewComponent implements OnInit {
   dataSet: any[][] = [];
   selectedValues: any[] = [];
   selectedValue: any;
+  labelSelect: any;
+  valueSelect: any;
+  enableDs: boolean;
   selectedArray: any[][] = [];
   chartLabels: any[][] = [];
   options: any;
@@ -63,6 +66,7 @@ export class DataViewComponent implements OnInit {
     this.chartData = [];
     this.selectedArray = [];
     this.selectedValues = [];
+
     this.chartLabels = [];
     const formData: FormData = new FormData();
     const file = event.files[0];
@@ -77,7 +81,6 @@ export class DataViewComponent implements OnInit {
             this.cols.push({ header: h, field: h });
           }
           this.rows = r.data;
-          //   console.log(this.rows);
         }
       },
       error: (err: any) => {
@@ -153,8 +156,18 @@ export class DataViewComponent implements OnInit {
     }
   }
 
+  multiDataSetEvent(event: any): void {
+    console.log(this.labelSelect);
+    console.log(this.valueSelect);
+  }
+
   radioEvent(event: any): void {
     console.log(this.selectedValue);
+  }
+
+  enableDS(event: any): void {
+
+    console.log(event.target.checked);
   }
 
   showQuickViz(): void {
