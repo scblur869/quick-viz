@@ -31,33 +31,34 @@
     </ng-template>
 </p-table>
 
-<p-card>
+<p-card class="p-p-1">
 
-<div class="p-field-checkbox p-m-2" style=" display: inline !important;">
-<p-checkbox name="groupname" value="enableDs" [(ngModel)]="enableDs" onChange="enableDS($event)" [binary]="true"></p-checkbox>
+<div class="p-field-checkbox p-p-1" >
+<p-checkbox name="groupname" [(ngModel)]="enableDs" (onChange)="enableDS($event)" [binary]="true"></p-checkbox>
  <label for="enableDs">Create DataSet</label>
 </div>
 
-<p-card *ngIf="!enableDs">
-<div class="p-field-checkbox p-m-2" style=" display: inline !important;">
+<p-card>
+<div  *ngIf="!enableDs" class="p-field-checkbox p-m-2" style=" display: inline !important;">
 <p-multiSelect [options]="cols" [panelStyle]="{minWidth:'15em'}" [style]="{minWidth:'15em'}" [(ngModel)]="selectedValues" optionLabel="header" optionValue="field" display="chip" (onChange)="checkEvent($event)"></p-multiSelect>
 {{cols.length}} Fields Found
 </div>
+
+
+<div *ngIf="enableDs">
+
+<p-dropdown class="p-mr-2 p-mb-1" placeholder="select x-axis"  [options]="cols" [(ngModel)]="labelSelect" optionLabel="header" (onChange)="multiDataSetEvent($event)" [panelStyle]="{minWidth:'15em'}" [style]="{minWidth:'15em'}" ></p-dropdown>
+<p-dropdown class="p-mr-2 p-mb-1" placeholder="select dataset"   [options]="cols" [(ngModel)]="valueSelect" optionLabel="field" (onChange)="multiDataSetEvent($event)" [panelStyle]="{minWidth:'15em'}" [style]="{minWidth:'15em'}" ></p-dropdown>
+</div>
+
+
 </p-card>
-
-<p-card *ngIf="enableDs">
-
-<p-dropdown class="p-mr-2 p-mb-2" placeholder="select x-axis"  [options]="cols" [(ngModel)]="labelSelect" optionLabel="header" (onChange)="multiDataSetEvent($event)" [panelStyle]="{minWidth:'15em'}" [style]="{minWidth:'15em'}" ></p-dropdown>
-<p-dropdown class="p-mr-2 p-mb-2" placeholder="select dataset"   [options]="cols" [(ngModel)]="valueSelect" optionLabel="field" (onChange)="multiDataSetEvent($event)" [panelStyle]="{minWidth:'15em'}" [style]="{minWidth:'15em'}" ></p-dropdown>
-
-</p-card>
-
-</p-card>
-<p-card>
+<p-card class="p-p-1">
 <button pButton type="button"  label="Visualize Selected Columns" class=" p-mr-3 p-button-outlined"  (click)="showQuickViz()"></button>
 
     <div *ngFor="let chart of chartType" class="p-mr-3"  style="display: inline !important;">
   <p-radioButton class="p-mr-2 p-mb-2"  name="radioGrp" [inputId]="chart.value" [value]="chart.value" [(ngModel)]="selectedValue" (onClick)="radioEvent($event)"></p-radioButton>
      <label [for]="chart.label">{{chart.label}}</label>
   </div>
+</p-card>
 </p-card>

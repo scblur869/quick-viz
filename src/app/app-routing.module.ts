@@ -10,7 +10,7 @@ const routes: Routes = [{
   component: MainComponent,
   children: [
     { path: 'single-data-view', component: DataViewComponent },
-    { path: 'multi-data-view', component: VisualizationComponent }
+    { path: 'about', component: VisualizationComponent }
   ]
 },
 { path: '', redirectTo: 'app', pathMatch: 'full' },

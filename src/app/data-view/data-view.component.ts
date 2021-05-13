@@ -34,7 +34,7 @@ export class DataViewComponent implements OnInit {
   selectedValue: any;
   labelSelect: any;
   valueSelect: any;
-  enableDs: boolean;
+  enableDs = false;
   selectedArray: any[][] = [];
   chartLabels: any[][] = [];
   options: any;
@@ -157,17 +157,36 @@ export class DataViewComponent implements OnInit {
   }
 
   multiDataSetEvent(event: any): void {
-    console.log(this.labelSelect);
-    console.log(this.valueSelect);
+
+    this.chartLabels = [];
+    this.chartData = [];
+    const xAxisArr = [];
+
+
+    if (this.labelSelect['header']) {
+      console.log('true 1');
+       if (this.valueSelect['header']) {
+        console.log('true 2');
+        for (const row of this.rows) {
+          if (row[this.labelSelect['header']] != undefined){
+            xAxisArr.push({dataset: row[this.labelSelect['header']], value: row[this.valueSelect['header']] });
+          }
+         
+        }
+        console.log(xAxisArr);
+       }
+    }
   }
 
   radioEvent(event: any): void {
     console.log(this.selectedValue);
   }
 
-  enableDS(event: any): void {
-
-    console.log(event.target.checked);
+  enableDS(event: boolean): void {
+    if (this.enableDs == false ){
+      this.labelSelect = null;
+      this.valueSelect = null;
+    }
   }
 
   showQuickViz(): void {
@@ -182,10 +201,24 @@ export class DataViewComponent implements OnInit {
       contentStyle: { 'max-height': '90%', overflow: 'auto' }
     });
   }
+  //    const counter = xAxisArr.reduce((count, item) => item === u ? count + 1 : count, 0);
+    //  this.chartData.push(counter);
 
 
   ngOnInit(): void {
-  }
+   this.valueSelect = [
+     {
+       header: '',
+       field: '',
+     }
+   ];
+   this.labelSelect = [
+    {
+      header: '',
+      field: '',
+    }
+  ];
+   }
 
 }
 
